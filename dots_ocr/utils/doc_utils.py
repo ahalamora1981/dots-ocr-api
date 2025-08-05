@@ -7,6 +7,8 @@ import requests
 from io import BytesIO
 
 
+DPI = 300
+
 class SupportedPdfParseMethod(enum.Enum):
     OCR = 'ocr'
     TXT = 'txt'
@@ -19,7 +21,7 @@ class PageInfo(BaseModel):
     h: float = Field(description='the height of page')
 
 
-def fitz_doc_to_image(doc, target_dpi=200, origin_dpi=None) -> dict:
+def fitz_doc_to_image(doc, target_dpi=DPI, origin_dpi=None) -> dict:
     """Convert fitz.Document to image, Then convert the image to numpy array.
 
     Args:
@@ -41,7 +43,7 @@ def fitz_doc_to_image(doc, target_dpi=200, origin_dpi=None) -> dict:
     return image
 
 
-def load_images_from_pdf(pdf_file: str, dpi=200, start_page_id=0, end_page_id=None) -> list:
+def load_images_from_pdf(pdf_file: str, dpi=DPI, start_page_id=0, end_page_id=None) -> list:
     images = []
     if pdf_file.startswith('http'):
         response = requests.get(pdf_file)

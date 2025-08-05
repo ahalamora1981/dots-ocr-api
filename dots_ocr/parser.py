@@ -2,14 +2,14 @@ import os
 import json
 import time
 from tqdm import tqdm
-from multiprocessing.pool import ThreadPool, Pool
+from multiprocessing.pool import ThreadPool
 import argparse
 
 
 from dots_ocr.model.inference import inference_with_vllm
 from dots_ocr.utils.consts import image_extensions, MIN_PIXELS, MAX_PIXELS
 from dots_ocr.utils.image_utils import get_image_by_fitz_doc, fetch_image, smart_resize
-from dots_ocr.utils.doc_utils import fitz_doc_to_image, load_images_from_pdf
+from dots_ocr.utils.doc_utils import load_images_from_pdf
 from dots_ocr.utils.prompts import dict_promptmode_to_prompt
 from dots_ocr.utils.layout_utils import post_process_output, draw_layout_on_image, pre_process_bboxes
 from dots_ocr.utils.format_transformer import layoutjson2md

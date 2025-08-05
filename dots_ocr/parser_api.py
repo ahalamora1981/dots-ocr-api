@@ -81,7 +81,7 @@ def extract_text_from_image_base64(image_base64, save_image=True, base_url=BASE_
                     f.write(image_data)
                 
                 # 生成HTTP访问链接
-                image_url = f"{base_url}/static/images/{image_filename}"
+                image_url = f"static/images/{image_filename}"
                 print(f"图片已保存到: {image_path}")
                 print(f"图片访问链接: {image_url}")
                 
@@ -437,18 +437,19 @@ app.mount("/static", StaticFiles(directory=static_dir), name="static")
 # 全局OCR解析器实例
 dots_ocr_parser = None
 
+OUTPUT = "./output"
+IP = "10.101.100.13"
+PORT = 8202
+MODEL_NAME = "model"
+TEMPERATURE = 0.1
+TOP_P = 1.0
+MAX_COMPLETION_TOKENS = 16384
+NUM_THREAD = 16
+DPI = 300
+
 def initialize_parser():
     """初始化OCR解析器"""
     global dots_ocr_parser
-    OUTPUT = "./output"
-    IP = "10.101.100.13"
-    PORT = 8202
-    MODEL_NAME = "model"
-    TEMPERATURE = 0.1
-    TOP_P = 1.0
-    MAX_COMPLETION_TOKENS = 16384
-    NUM_THREAD = 32
-    DPI = 200
 
     dots_ocr_parser = DotsOCRParser(
         ip=IP,
