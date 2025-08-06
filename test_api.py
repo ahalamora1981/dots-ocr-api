@@ -13,7 +13,7 @@ def test_dots_ocr_api(parse_base64_image=False):
     
     # 测试参数
     params = {
-        "input_path": "http://10.101.100.13:8111/pdf/%E4%B8%87%E5%AE%B6%E7%A8%B3%E9%91%AB30%E5%A4%A9.pdf",  # 使用demo目录中的测试图片
+        "input_path": "http://10.101.100.13:8111/pdf/WFO_SDK_Overview.pdf",  # 使用demo目录中的测试图片
         "parse_base64_image": parse_base64_image
     }
     

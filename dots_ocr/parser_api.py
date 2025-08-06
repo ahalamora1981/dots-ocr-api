@@ -444,7 +444,7 @@ MODEL_NAME = "model"
 TEMPERATURE = 0.1
 TOP_P = 1.0
 MAX_COMPLETION_TOKENS = 16384
-NUM_THREAD = 16
+NUM_THREAD = 64
 DPI = 300
 
 def initialize_parser():
